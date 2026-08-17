@@ -34,8 +34,28 @@
             --urban: #1E90FF;
             --text: #333;
             --light-text: #f0f0f0;
+            --bg-body: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            --bg-card: white;
+            --card-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            --card-shadow-hover: 0 25px 60px rgba(0, 0, 0, 0.15);
+            --section-bg: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
-        
+
+        body.dark-mode {
+            --primary: #4a8db7;
+            --secondary: #2ac3c7;
+            --accent: #f1c40f;
+            --dark: #e0e0e0;
+            --light: #1a1a2e;
+            --text: #eee;
+            --light-text: #ddd;
+            --bg-body: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            --bg-card: #2a2a4a;
+            --card-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            --card-shadow-hover: 0 25px 60px rgba(0, 0, 0, 0.7);
+            --section-bg: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -46,8 +66,9 @@
             font-family: 'Montserrat', sans-serif;
             color: var(--text);
             overflow-x: hidden;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: var(--bg-body);
             line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
         }
         
         h1, h2, h3, h4, h5 {
@@ -55,6 +76,7 @@
             font-weight: 700;
             color: var(--dark);
             line-height: 1.3;
+            transition: color 0.3s;
         }
         
         /* Header Styles */
@@ -66,6 +88,11 @@
             z-index: 1000;
             padding: 15px 0;
             transition: all 0.4s ease;
+        }
+
+        body.dark-mode header {
+            background: rgba(26, 26, 46, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
         }
         
         .header-container {
@@ -93,6 +120,7 @@
             justify-content: center;
             margin-right: 12px;
             box-shadow: 0 4px 12px rgba(10, 74, 124, 0.2);
+            transition: background 0.3s;
         }
         
         .logo-icon i {
@@ -111,6 +139,7 @@
             font-size: 28px;
             color: var(--primary);
             letter-spacing: -0.5px;
+            transition: color 0.3s;
         }
         
         .logo-text span:last-child {
@@ -119,6 +148,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-top: -5px;
+            transition: color 0.3s;
         }
         
         nav ul {
@@ -197,6 +227,24 @@
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(10, 74, 124, 0.3);
             background: linear-gradient(135deg, #083e68, #14878a);
+        }
+
+        /* Dark mode toggle */
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+            transition: color 0.3s;
+            padding: 5px;
+            line-height: 1;
+        }
+        .theme-toggle:hover {
+            color: var(--accent);
+        }
+        body.dark-mode .theme-toggle {
+            color: var(--light-text);
         }
         
         /* Hero Section */
@@ -304,6 +352,10 @@
             max-width: 700px;
             margin: 30px auto 0;
         }
+
+        body.dark-mode .section-title p {
+            color: #aaa;
+        }
         
         .destinations-grid {
             display: grid;
@@ -315,17 +367,17 @@
         }
         
         .destination-card {
-            background: white;
+            background: var(--bg-card);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--card-shadow);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
         }
         
         .destination-card:hover {
             transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--card-shadow-hover);
         }
         
         .destination-img {
@@ -365,6 +417,11 @@
         .destination-content h3 {
             font-size: 1.8rem;
             margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .destination-content p {
+            color: var(--text);
         }
         
         .destination-meta {
@@ -375,11 +432,16 @@
             padding-top: 20px;
             border-top: 1px dashed #eee;
         }
+
+        body.dark-mode .destination-meta {
+            border-top-color: #444;
+        }
         
         .price {
             font-weight: 700;
             font-size: 1.6rem;
             color: var(--primary);
+            transition: color 0.3s;
         }
         
         .price span {
@@ -387,12 +449,17 @@
             color: #777;
             font-weight: 500;
         }
+
+        body.dark-mode .price span {
+            color: #aaa;
+        }
         
         /* Packages Section */
         .packages {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: var(--section-bg);
             position: relative;
             overflow: hidden;
+            transition: background 0.3s;
         }
         
         .packages::before {
@@ -429,17 +496,17 @@
         }
         
         .package-card {
-            background: white;
+            background: var(--bg-card);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--card-shadow);
             transition: all 0.4s ease;
             position: relative;
         }
         
         .package-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+            box-shadow: var(--card-shadow-hover);
         }
         
         .package-header {
@@ -452,6 +519,7 @@
         .package-header h3 {
             font-size: 1.8rem;
             margin-bottom: 10px;
+            color: white;
         }
         
         .package-price {
@@ -481,6 +549,10 @@
             align-items: center;
             font-size: 16px;
         }
+
+        body.dark-mode .package-features ul li {
+            border-bottom-color: #444;
+        }
         
         .package-features ul li i {
             color: var(--accent);
@@ -496,6 +568,10 @@
             padding: 100px 0;
             position: relative;
             overflow: hidden;
+        }
+
+        body.dark-mode .testimonials {
+            background: linear-gradient(135deg, #0d0d1a, #1a1a2e);
         }
         
         .testimonials::before {
@@ -588,21 +664,23 @@
         /* Newsletter */
         .newsletter {
             padding: 100px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: var(--section-bg);
             position: relative;
             overflow: hidden;
+            transition: background 0.3s;
         }
         
         .newsletter-container {
             max-width: 900px;
             margin: 0 auto;
-            background: white;
+            background: var(--bg-card);
             border-radius: 25px;
             padding: 60px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--card-shadow);
             position: relative;
             z-index: 2;
             text-align: center;
+            transition: background 0.3s, box-shadow 0.3s;
         }
         
         .newsletter h2 {
@@ -615,6 +693,10 @@
             color: #666;
             max-width: 600px;
             margin: 0 auto 40px;
+        }
+
+        body.dark-mode .newsletter p {
+            color: #aaa;
         }
         
         .subscribe-form {
@@ -632,6 +714,11 @@
             border: none;
             font-size: 1rem;
             outline: none;
+        }
+
+        body.dark-mode .subscribe-form input {
+            background: #333;
+            color: #eee;
         }
         
         .subscribe-form button {
@@ -655,6 +742,11 @@
             color: var(--light-text);
             padding: 100px 0 40px;
             position: relative;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.dark-mode footer {
+            background: #0d0d1a;
         }
         
         .footer-container {
@@ -896,13 +988,12 @@
 .wildlife-section {
   max-width: 1400px;
   width: 100%;
-  background: white;
+  background: var(--bg-card);
   border-radius: 25px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--card-shadow);
   overflow: hidden;
   margin: 40px auto;
-  /* If you need the section to flow within your page layout rather than centering: 
-     remove any flex or centering styles from body and let this sit naturally. */
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
 /* Header */
@@ -920,6 +1011,7 @@
   margin-bottom: 20px;
   position: relative;
   display: inline-block;
+  color: white;
 }
 .wildlife-section .section-header h2::after {
   content: '';
@@ -938,6 +1030,7 @@
   margin: 40px auto 0;
   opacity: 0.9;
   line-height: 1.7;
+  color: white;
 }
 
 /* Grid of cards */
@@ -950,14 +1043,14 @@
 .wildlife-section .wildlife-card {
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--card-shadow);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
-  background: white;
+  background: var(--bg-card);
 }
 .wildlife-section .wildlife-card:hover {
   transform: translateY(-15px);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--card-shadow-hover);
 }
 .wildlife-section .wildlife-img {
   height: 350px;
@@ -984,7 +1077,7 @@
   color: #1a3a29;
 }
 .wildlife-section .wildlife-content p {
-  color: #555;
+  color: var(--text);
   font-size: 1.05rem;
   line-height: 1.7;
   margin-bottom: 25px;
@@ -1257,6 +1350,9 @@
             </nav>
             
             <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <a href="contacts.html" class="btn btn-primary">Book Now</a>
             </div>
         </div>
@@ -1276,23 +1372,23 @@
         </div>
     </section>
 
-    <!-- Featured Destinations -->
+    <!-- Featured Destinations - Kenya Attractions -->
     <section class="section">
         <div class="section-title">
-            <h2>Premium Destinations</h2>
-            <p>Discover our handpicked selection of the world's most breathtaking locations</p>
+            <h2>Kenya's Finest Attractions</h2>
+            <p>Explore the best of Kenya – from wildlife safaris to pristine beaches and iconic landmarks</p>
         </div>
         
         <div class="destinations-grid">
-            <!-- Destination 1 -->
+            <!-- 1. Maasai Mara -->
             <div class="destination-card animate">
                 <div class="destination-img">
-                    <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Maasai Mara Safari">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Maasai Mara Safari">
                     <div class="destination-tag">Safari</div>
                 </div>
                 <div class="destination-content">
-                    <h3>Maasai Mara Safari</h3>
-                    <p>Witness the Great Migration and Africa's Big Five in their natural habitat. Experience thrilling game drives and authentic Maasai cultural encounters.</p>
+                    <h3>Maasai Mara</h3>
+                    <p>Witness the Great Migration and the Big Five. Experience authentic Maasai culture and breathtaking savannah landscapes.</p>
                     <div class="destination-meta">
                         <div class="price">$1,299 <span>/ person</span></div>
                         <div>
@@ -1302,103 +1398,89 @@
                 </div>
             </div>
             
-            <!-- Destination 2 -->
+            <!-- 2. Nairobi National Park -->
             <div class="destination-card animate delay-1">
                 <div class="destination-img">
-                    <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Burj Khalifa Experience">
-                    <div class="destination-tag">Luxury</div>
+                    <img src="https://images.unsplash.com/photo-1587574293340-e0011c4e5c5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Nairobi National Park">
+                    <div class="destination-tag">Wildlife</div>
                 </div>
                 <div class="destination-content">
-                    <h3>Burj Khalifa Experience</h3>
-                    <p>Visit the world's tallest building and enjoy panoramic views of Dubai. Experience luxury shopping, desert safaris, and stunning modern architecture.</p>
+                    <h3>Nairobi National Park</h3>
+                    <p>The only national park within a capital city. Spot rhinos, lions, and giraffes against a backdrop of city skyscrapers.</p>
                     <div class="destination-meta">
-                        <div class="price">$1,899 <span>/ person</span></div>
+                        <div class="price">$899 <span>/ person</span></div>
                         <div>
-                            <i class="fas fa-clock"></i> 5 Days
+                            <i class="fas fa-clock"></i> 4 Days
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Destination 3 -->
+            <!-- 3. Amboseli National Park -->
             <div class="destination-card animate delay-2">
                 <div class="destination-img">
-                    <img src="https://images.unsplash.com/photo-1590523278191-995cbcda646b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Kilimanjaro Trek">
-                    <div class="destination-tag">Adventure</div>
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Amboseli National Park">
+                    <div class="destination-tag">Scenic</div>
                 </div>
                 <div class="destination-content">
-                    <h3>Kilimanjaro Summit</h3>
-                    <p>Conquer Africa's highest peak with expert guides. Experience diverse ecosystems from rainforest to arctic summit on this life-changing adventure.</p>
+                    <h3>Amboseli National Park</h3>
+                    <p>Home to large elephant herds and stunning views of Mount Kilimanjaro. Perfect for photography and nature lovers.</p>
                     <div class="destination-meta">
-                        <div class="price">$2,499 <span>/ person</span></div>
+                        <div class="price">$1,199 <span>/ person</span></div>
                         <div>
-                            <i class="fas fa-clock"></i> 9 Days
+                            <i class="fas fa-clock"></i> 5 Days
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="destination-card animate delay-2">
+            <!-- 4. Lake Nakuru National Park -->
+            <div class="destination-card animate delay-1">
                 <div class="destination-img">
-                    <img src="https://images.unsplash.com/photo-1590523278191-995cbcda646b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Kilimanjaro Trek">
+                    <img src="https://images.unsplash.com/photo-1566378246598-5b11a0d486cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Lake Nakuru">
+                    <div class="destination-tag">Bird Watching</div>
+                </div>
+                <div class="destination-content">
+                    <h3>Lake Nakuru</h3>
+                    <p>Famous for its flamingos and rhino sanctuary. Enjoy boat rides and birdwatching in this picturesque Rift Valley lake.</p>
+                    <div class="destination-meta">
+                        <div class="price">$749 <span>/ person</span></div>
+                        <div>
+                            <i class="fas fa-clock"></i> 3 Days
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Tsavo National Parks -->
+            <div class="destination-card animate delay-1">
+                <div class="destination-img">
+                    <img src="https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Tsavo National Park">
                     <div class="destination-tag">Adventure</div>
                 </div>
                 <div class="destination-content">
-                    <h3>Kilimanjaro Summit</h3>
-                    <p>Conquer Africa's highest peak with expert guides. Experience diverse ecosystems from rainforest to arctic summit on this life-changing adventure.</p>
+                    <h3>Tsavo National Parks</h3>
+                    <p>Explore Tsavo East & West – home to the famous "red elephants", volcanic hills, and the Mzima Springs.</p>
                     <div class="destination-meta">
-                        <div class="price">$2,499 <span>/ person</span></div>
+                        <div class="price">$1,399 <span>/ person</span></div>
                         <div>
-                            <i class="fas fa-clock"></i> 9 Days
+                            <i class="fas fa-clock"></i> 6 Days
                         </div>
                     </div>
                 </div>
             </div>
-             <!-- Destination 4 -->
+
+            <!-- 6. Diani Beach & Coastal Kenya -->
             <div class="destination-card animate delay-1">
                 <div class="destination-img">
-                    <img src="https://i.pinimg.com/1200x/23/94/ae/2394aeb29e82fc4fe661fde2e3a7407d.jpg" alt="San Miguel Experience">
-                    <div class="destination-tag">Luxury</div>
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Diani Beach">
+                    <div class="destination-tag">Beach</div>
                 </div>
                 <div class="destination-content">
-                    <h3>San Miguel, Italy</h3>
-                    <p>Welcome to San Miguel, a picturesque and enchanting town nestled in the heart of Mexico. At Remote Tours, we invite you to discover the beauty, culture, and charm of this hidden gem..</p>
+                    <h3>Diani Beach</h3>
+                    <p>Relax on white sandy beaches, snorkel in coral reefs, and enjoy Swahili cuisine. A perfect coastal escape.</p>
                     <div class="destination-meta">
-                        <div class="price">$1,899 <span>/ person</span></div>
-                        <div>
-                            <i class="fas fa-clock"></i> 5 Days
-                        </div>
-                    </div>
-                </div>
-            </div>
-             <!-- Destination 5 -->
-            <div class="destination-card animate delay-1">
-                <div class="destination-img">
-                    <img src="https://i.pinimg.com/1200x/09/94/0d/09940d0dbdb9d3484a7e6c83fbc4a34d.jpg" alt="Maldives Experience">
-                    <div class="destination-tag">Luxury</div>
-                </div>
-                <div class="destination-content">
-                    <h3>Maldives</h3>
-                    <p>Located in the pristine Raa Atoll, the InterContinental Maldives Maamunagau Resort is a fine mix of luxury and natural beauty. Make the most of the gorgeous lagoon and its marine life.</p>
-                    <div class="destination-meta">
-                        <div class="price">$1,899 <span>/ person</span></div>
-                        <div>
-                            <i class="fas fa-clock"></i> 5 Days
-                        </div>
-                    </div>
-                </div>
-            </div>
-             <!-- Destination 6 -->
-            <div class="destination-card animate delay-1">
-                <div class="destination-img">
-                    <img src="https://i.pinimg.com/1200x/09/94/0d/09940d0dbdb9d3484a7e6c83fbc4a34d.jpg" alt="Burj Khalifa Experience">
-                    <div class="destination-tag">Adventure</div>
-                </div>
-                <div class="destination-content">
-                    <h3>Kailasa Temple india Experience</h3>
-                    <p>Step into the awe‑inspiring Kailasa Temple at Ellora—India’s largest monolithic monument. Carved in the 8th century directly from living rock, its soaring pillars, intricate sculptures, and cascading relief panels celebrate Hindu mythology in breathtaking detail.</p>
-                    <div class="destination-meta">
-                        <div class="price">$1,899 <span>/ person</span></div>
+                        <div class="price">$1,099 <span>/ person</span></div>
                         <div>
                             <i class="fas fa-clock"></i> 5 Days
                         </div>
@@ -1759,6 +1841,24 @@
     </footer>
 
     <script>
+        // Dark mode toggle
+        const toggleBtn = document.getElementById('themeToggle');
+        const icon = toggleBtn.querySelector('i');
+
+        // Check saved preference
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        toggleBtn.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            icon.classList.toggle('fa-moon', !isDark);
+            icon.classList.toggle('fa-sun', isDark);
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
         // Animation on scroll
         document.addEventListener('DOMContentLoaded', function() {
             const animateElements = document.querySelectorAll('.animate');
