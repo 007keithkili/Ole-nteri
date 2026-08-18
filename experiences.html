@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experiences – Ole Nteri Eco Tours &amp; Safari</title>
+    <meta name="description" content="Discover extraordinary experiences with Ole Nteri – from hot air balloon safaris to cultural immersions, trekking, and luxury beach escapes." />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a4a7c;
+            --secondary: #18a3a7;
+            --accent: #f39c12;
+            --dark: #1a2a3a;
+            --light: #f8f9fa;
+            --text: #333;
+            --bg-body: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            --bg-card: #ffffff;
+            --card-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            --card-shadow-hover: 0 25px 60px rgba(0, 0, 0, 0.15);
+            --section-bg: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        body.dark-mode {
+            --primary: #4a8db7;
+            --secondary: #2ac3c7;
+            --accent: #f1c40f;
+            --dark: #e0e0e0;
+            --light: #1a1a2e;
+            --text: #eee;
+            --bg-body: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            --bg-card: #2a2a4a;
+            --card-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            --card-shadow-hover: 0 25px 60px rgba(0, 0, 0, 0.7);
+            --section-bg: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg-body);
+            color: var(--text);
+            transition: background 0.3s, color 0.3s;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--dark);
+            transition: color 0.3s;
+        }
+
+        /* header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.4s ease;
+        }
+        body.dark-mode header {
+            background: rgba(26, 26, 46, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 12px;
+            box-shadow: 0 4px 12px rgba(10, 74, 124, 0.2);
+        }
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .logo-text span:first-child {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            font-size: 28px;
+            color: var(--primary);
+            transition: color 0.3s;
+        }
+        .logo-text span:last-child {
+            font-size: 12px;
+            color: var(--secondary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: -5px;
+            transition: color 0.3s;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 16px;
+            position: relative;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+        }
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background: var(--accent);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .btn {
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(10, 74, 124, 0.3);
+        }
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+            transition: color 0.3s;
+            padding: 5px;
+        }
+        .theme-toggle:hover {
+            color: var(--accent);
+        }
+
+        /* HERO */
+        .experiences-hero {
+            min-height: 55vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 140px 20px 70px;
+            background: linear-gradient(rgba(10, 74, 124, 0.75), rgba(26, 42, 58, 0.85)),
+                url('https://images.unsplash.com/photo-1535382657601-1c0d2e096d3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            color: white;
+        }
+        .experiences-hero h1 {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .experiences-hero h1 span {
+            color: var(--accent);
+        }
+        .experiences-hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        /* SECTION */
+        .section {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-title h2 {
+            font-size: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 5px;
+            background: var(--accent);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 30px auto 0;
+        }
+        body.dark-mode .section-title p {
+            color: #aaa;
+        }
+
+        .experiences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 35px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .experience-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .experience-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: var(--card-shadow-hover);
+        }
+        .experience-img {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+        .experience-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        .experience-card:hover .experience-img img {
+            transform: scale(1.1);
+        }
+        .experience-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 13px;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+        }
+        .experience-content {
+            padding: 30px;
+        }
+        .experience-content h3 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        .experience-content p {
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+        .experience-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 18px;
+            border-top: 1px dashed #ddd;
+        }
+        body.dark-mode .experience-meta {
+            border-top-color: #444;
+        }
+        .price {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--primary);
+        }
+        .price span {
+            font-size: 0.9rem;
+            color: #777;
+            font-weight: 500;
+        }
+        body.dark-mode .price span {
+            color: #aaa;
+        }
+
+        /* footer */
+        footer {
+            background: var(--dark);
+            color: var(--light-text);
+            padding: 80px 0 40px;
+            transition: background 0.3s;
+        }
+        body.dark-mode footer {
+            background: #0d0d1a;
+        }
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+        }
+        .footer-col h4 {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            position: relative;
+        }
+        .footer-col h4:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+            border-radius: 3px;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+        .footer-links a i {
+            margin-right: 8px;
+            color: var(--accent);
+        }
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-4px);
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin: 15px 0;
+            }
+            nav ul li {
+                margin: 6px 12px;
+            }
+            .experiences-hero h1 {
+                font-size: 2.8rem;
+            }
+            .experiences-grid {
+                padding: 0 20px;
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            .experiences-hero h1 {
+                font-size: 2.2rem;
+            }
+            .experiences-hero p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><img src="https://i.pinimg.com/736x/da/25/2f/da252f24675c5dced07204b94f46addf.jpg" alt="Ole Nteri Logo" /></div>
+                <div class="logo-text">
+                    <span>OLE NTERI ECO TOURS</span>
+                    <span>and Safari Limited</span>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="experiences.html" style="color:var(--accent);">Experiences</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contacts.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+                <a href="contacts.html" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="experiences-hero">
+        <div>
+            <h1>Unforgettable <span>Experiences</span></h1>
+            <p>From sky-high balloon safaris to intimate Maasai village visits – every moment is crafted to inspire.</p>
+        </div>
+    </section>
+
+    <!-- EXPERIENCES GRID -->
+    <section class="section">
+        <div class="section-title">
+            <h2>Curated Adventures</h2>
+            <p>Immerse yourself in authentic, handcrafted experiences that go beyond the ordinary</p>
+        </div>
+
+        <div class="experiences-grid">
+
+            <!-- 1. Hot Air Balloon Safari -->
+            <div class="experience-card">
+                <div class="experience-img">
+                    <img src="https://i.pinimg.com/736x/93/b1/86/93b186e62a64fa6f7af0e0af722d9c4c.jpg" alt="Hot air balloon safari" />
+                    <span class="experience-tag">Aerial</span>
+                </div>
+                <div class="experience-content">
+                    <h3>Hot Air Balloon Safari</h3>
+                    <p>Float silently over the Maasai Mara at sunrise. Witness herds of wildebeest and elephants from a breathtaking bird's-eye view.</p>
+                    <div class="experience-meta">
+                        <span class="price">$549 <span>/ person</span></span>
+                        <span><i class="fas fa-clock"></i> 4 Hours</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Maasai Village Immersion -->
+            <div class="experience-card">
+                <div class="experience-img">
+                    <img src="https://i.pinimg.com/736x/47/db/1d/47db1dafa541db25365e76ee7908c444.jpg" alt="Maasai village" />
+                    <span class="experience-tag">Cultural</span>
+                </div>
+                <div class="experience-content">
+                    <h3>Maasai Village Immersion</h3>
+                    <p>Spend a day with the Maasai people. Learn traditional dances, beadwork, and the art of fire-making in an authentic Manyatta.</p>
+                    <div class="experience-meta">
+                        <span class="price">$249 <span>/ person</span></span>
+                        <span><i class="fas fa-clock"></i> 1 Day</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Night Game Drive -->
+            <div class="experience-card">
+                <div class="experience-img">
+                    <img src="https://i.pinimg.com/736x/dd/fc/89/ddfc8982abd43731893e717f5b912bf8.jpg" alt="Night safari" />
+                    <span class="experience-tag">Wildlife</span>
+                </div>
+                <div class="experience-content">
+                    <h3>Night Game Drive</h3>
+                    <p>Explore the African bush after dark. Spot nocturnal predators like leopards, hyenas, and elusive bush babies.</p>
+                    <div class="experience-meta">
+                        <span class="price">$349 <span>/ person</span></span>
+                        <span><i class="fas fa-clock"></i> 3 Hours</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Mount Kenya Trek -->
+            <div class="experience-card">
+                <div class="experience-img">
+                    <img src="https://i.pinimg.com/736x/90/ce/c1/90cec1c89927aad0ca92977d79e3b241.jpg" alt="Mount Kenya trek" />
+                    <span class="experience-tag">Trekking</span>
+                </div>
+                <div class="experience-content">
+                    <h3>Mount Kenya Summit Trek</h3>
+                    <p>Conquer Africa's second-highest peak. Professional guides, porter support, and stunning equatorial alpine scenery.</p>
+                    <div class="experience-meta">
+                        <span class="price">$1,299 <span>/ person</span></span>
+                        <span><i class="fas fa-clock"></i> 6 Days</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Snorkeling in Diani -->
+            <div class="experience-card">
+                <div class="experience-img">
+                    <img src="https://i.pinimg.com/736x/c5/06/9a/c5069a7181f00649eecad53b939f8a27.jpg" alt="Snorkeling Diani" />
+                    <span class="experience-tag">Beach</span>
+                </div>
+                <div class="experience-content">
+                    <h3>Snorkeling &amp; Dolphin Tour</h3>
+                    <p>Explore vibrant coral reefs teeming with tropical fish. Spot playful dolphins in the crystal-clear waters of Diani.</p>
+                    <div class="experience-meta">
+                        <span class="price">$199 <span>/ person</span></span>
+                        <span><i class="fas fa-clock"></i> 4 Hours</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Kajiado Cultural Walk -->
+            <div class="experience-card">
+                <div class="experience-img">
+                    <img src="https://i.pinimg.com/1200x/41/e7/a4/41e7a4e19fa89559128760e48d8ccb6b.jpg" alt="Kajiado walk" />
+                    <span class="experience-tag">Cultural</span>
+                </div>
+                <div class="experience-content">
+                    <h3>Kajiado Nature &amp; Culture Walk</h3>
+                    <p>Walk through the rolling hills of Kajiado with a Maasai guide. Learn about traditional herbs, livestock, and local history.</p>
+                    <div class="experience-meta">
+                        <span class="price">$149 <span>/ person</span></span>
+                        <span><i class="fas fa-clock"></i> 3 Hours</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Lake Naivasha Boat Safari -->
+            <div class="experience-card">
+                <div class="experience-img">
+                    <img src="https://i.pinimg.com/736x/14/e5/e4/14e5e476fbb58682608e31de706da964.jpg" alt="Lake Naivasha boat" />
+                    <span class="experience-tag">Wildlife</span>
+                </div>
+                <div class="experience-content">
+                    <h3>Lake Naivasha Boat Safari</h3>
+                    <p>Glide across the lake among hippos and fish eagles. Visit Crescent Island for walking safari among giraffes and zebras.</p>
+                    <div class="experience-meta">
+                        <span class="price">$189 <span>/ person</span></span>
+                        <span><i class="fas fa-clock"></i> 3 Hours</span>
+                    </div>
+                </div>
+            </div>
+
+           
+
+            <!-- 9. Lamu Dhow Sunset Cruise -->
+            <div class="experience-card">
+                <div class="experience-img">
+                    <img src="https://i.pinimg.com/736x/48/e5/db/48e5db158c0802ab30535515be543c11.jpg" alt="Lamu dhow" />
+                    <span class="experience-tag">Heritage</span>
+                </div>
+                <div class="experience-content">
+                    <h3>Lamu Dhow Sunset Cruise</h3>
+                    <p>Sail the ancient Swahili coast on a traditional dhow. Watch the sun dip below the horizon while sipping fresh coconut water.</p>
+                    <div class="experience-meta">
+                        <span class="price">$179 <span>/ person</span></span>
+                        <span><i class="fas fa-clock"></i> 2 Hours</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. Hell's Gate Cycling -->
+            <div class="experience-card">
+                <div class="experience-img">
+                    <img src="https://i.pinimg.com/736x/10/02/11/100211f25017a1c3eab892cfb0759d38.jpg" alt="Hell's Gate cycling" />
+                    <span class="experience-tag">Active</span>
+                </div>
+                <div class="experience-content">
+                    <h3>Hell's Gate Cycling Safari</h3>
+                    <p>Pedal through towering gorges, past geothermal steam vents, and spot zebras and gazelles up close on two wheels.</p>
+                    <div class="experience-meta">
+                        <span class="price">$159 <span>/ person</span></span>
+                        <span><i class="fas fa-clock"></i> 4 Hours</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11. Kilimanjaro Day Hike -->
+            <div class="experience-card">
+                <div class="experience-img">
+                    <img src="https://i.pinimg.com/736x/c5/ac/df/c5acdf1a82457213a8248a872acdfd4a.jpg" alt="Kilimanjaro hike" />
+                    <span class="experience-tag">Trekking</span>
+                </div>
+                <div class="experience-content">
+                    <h3>Kilimanjaro Day Hike</h3>
+                    <p>Trek through the lush rainforest of Mount Kilimanjaro's lower slopes. A taste of Africa's highest peak.</p>
+                    <div class="experience-meta">
+                        <span class="price">$399 <span>/ person</span></span>
+                        <span><i class="fas fa-clock"></i> 1 Day</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12. Samburu Camel Safari -->
+            <div class="experience-card">
+                <div class="experience-img">
+                    <img src="https://i.pinimg.com/1200x/4b/e4/03/4be403e3c1b6ed6a2767298ae1dbf057.jpg" alt="Camel safari" />
+                    <span class="experience-tag">Safari</span>
+                </div>
+                <div class="experience-content">
+                    <h3>Samburu Camel Safari</h3>
+                    <p>Traverse the semi-arid landscapes of Samburu on camelback. Discover unique wildlife like the reticulated giraffe.</p>
+                    <div class="experience-meta">
+                        <span class="price">$279 <span>/ person</span></span>
+                        <span><i class="fas fa-clock"></i> 2 Days</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <a href="index.html" class="logo" style="display:flex; align-items:center; gap:10px; text-decoration:none; margin-bottom:15px;">
+                    <div class="logo-icon" style="width:45px; height:45px;"><img src="https://i.pinimg.com/736x/da/25/2f/da252f24675c5dced07204b94f46addf.jpg" alt="logo" /></div>
+                    <div><span style="font-family:'Playfair Display',serif; font-weight:800; font-size:1.6rem; color:var(--accent);">Ole Nteri</span></div>
+                </a>
+                <p style="color:rgba(255,255,255,0.7);">Unforgettable journeys with a sustainable heart.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="experiences.html">Experiences</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contacts.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="terms.html"><i class="fas fa-chevron-right"></i> Terms</a></li>
+                    <li><a href="policy.html"><i class="fas fa-chevron-right"></i> Privacy</a></li>
+                    <li><a href="Cancellationpolicy.html"><i class="fas fa-chevron-right"></i> Cancellation</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul class="footer-links" style="list-style:none;">
+                    <li><i class="fas fa-phone-alt" style="color:var(--accent);"></i> +254 717 387 173</li>
+                    <li><i class="fas fa-envelope" style="color:var(--accent);"></i> kisiananjeremiah@gmail.com</li>
+                    <li><i class="fas fa-clock" style="color:var(--accent);"></i> Mon–Sat 8AM – 6PM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Ole Nteri Eco Tours and Safari Limited.Developed by Quantum Solutions  All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode toggle
+        const toggleBtn = document.getElementById('themeToggle');
+        const icon = toggleBtn.querySelector('i');
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
+        toggleBtn.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            icon.classList.toggle('fa-moon', !isDark);
+            icon.classList.toggle('fa-sun', isDark);
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    </script>
+</body>
+</html>
